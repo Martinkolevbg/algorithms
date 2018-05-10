@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num,pow;
+    cin >> num;
+    cin >> pow;
+    int count = num;
+    int res = num;
+
+    if (num == 0){
+        res = 1;
+    }
+    else {
+        for (int i = 1;i < pow; i++){
+            for (int j = 1; j < num; j++){
+                count += res;
+            }
+            res = count;
+        }
+    }
+    cout << res << endl;
+    return 0;
+}

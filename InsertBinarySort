@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+void binary_sort_element(int *array, int x);
+void insert_element(int *array, int x, int i);
+
+int main() {
+    int n;
+    cin >> n;
+    int a[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    for (int i = 1; i < n; ++i) {
+        binary_sort_element(a, i);
+    }
+    for(int i = 0; i < n; i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+void binary_sort_element(int* array, int x){
+    int start = 0;
+    int end = x - 1;
+    int mid = 0;
+    while(start <= end) {
+        mid = (start + end)/2;
+        if (array[x] == array[mid]){
+            insert_element(array, x, mid + 1);
+            return;
+        } else if(array[x] < array[mid]){
+            end = mid - 1;
+        } else{
+            start = mid + 1;
+        }
+    }
+    if(array[x] < array[mid]){
+        insert_element(array, x, mid);
+    } else{
+        insert_element(array, x, mid + 1);
+    }
+}
+
+void insert_element(int *array, int x, int i){
+    while (x > i){
+        int temp;
+        temp = array[x];
+        array[x] = array[x-1];
+        array[x-1] = temp;
+        x--;
+    }
+}
+

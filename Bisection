@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+
+double f (double x){
+
+return x*x;
+}
+
+int main()
+{
+    double l, r, isize;
+
+    cin >> l >> r >> isize;
+    double pos = l;
+    double res = 0;
+
+    double nextStep = pos + isize;
+
+    while (res == 0){
+        if(f(pos)*f(nextStep)<=0){
+            res =(pos + nextStep)/2;
+        }
+        else{
+            res+=isize;
+            nextStep += isize;
+        }
+    }
+
+
+    cout << res << endl;
+    return 0;
+}

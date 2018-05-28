@@ -2,17 +2,14 @@
 
 using namespace std;
 
-
 double f (double x){
-
 return x*x;
 }
-
 int main()
 {
     double l, r, isize;
-
     cin >> l >> r >> isize;
+    
     double pos = l;
     double res = 0;
 
@@ -27,8 +24,6 @@ int main()
             nextStep += isize;
         }
     }
-
-
     cout << res << endl;
     return 0;
 }
